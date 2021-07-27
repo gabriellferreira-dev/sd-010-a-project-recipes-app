@@ -11,6 +11,7 @@
     "clipboard-copy": "^3.1.0",
     "history": "^4.7.2",
     "lodash": "^4.17.15",
+    "node-sass": "4.14",
     "owl.carousel": "^2.3.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
