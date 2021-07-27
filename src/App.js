@@ -1,20 +1,25 @@
 import React from 'react';
+import { Switch, Route } from 'react-router-dom';
 import './App.css';
-import rockGlass from './images/rockGlass.svg';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import RecipesProvider from './provider/RecipesProvider';
+import routes from './helpers/routes';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
-    <div className="meals">
-      <span className="logo">TRYBE</span>
-      <object
-        className="rocksGlass"
-        type="image/svg+xml"
-        data={ rockGlass }
-      >
-        Glass
-      </object>
-    </div>
+    <RecipesProvider>
+      <Switch>
+        {routes.map(({ path, Component, exact, title }) => (
+          <Route
+            key={ path }
+            path={ path }
+            exact={ exact }
+            render={ () => <Component title={ title } /> }
+          />
+        ))}
+        <Route component={ NotFound } />
+      </Switch>
+    </RecipesProvider>
   );
 }
 
